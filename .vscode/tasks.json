@@ -1,0 +1,38 @@
+{
+    "version": "2.0.0",
+    "type": "shell",
+    "echoCommand": true,
+    "tasks": [
+        {
+            "label": "Build project",
+            "command": "wsl",
+            "args": [
+                "~/.cargo/bin/cargo",
+                "build"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Clean project",
+            "command": "powershell -Command Remove-Item",
+            "args": [
+                "${workspaceFolder}\\build",
+                "-Recurse"
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "Flash program",
+            "command": "openocd -f ./openocd.cfg -c \"./target/thumbv7em-none-eabihf/debug/${workspaceFolderBasename}\"",
+            "problemMatcher": [],
+            "group": "none",
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Cortex Debug",
+            "cwd": "${workspaceRoot}",
+            "executable": "./target/thumbv7em-none-eabihf/debug/${workspaceFolderBasename}",
+            "device": "STM32G431",
+            "request": "launch",
+            "preLaunchTask": "Build project",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "configFiles": [
+                "interface/stlink-v2-1.cfg",
+                "target/stm32g4x.cfg"
+            ],
+            "autorun": [
+                "interrupt",
+                "monitor reset halt",
+                "break main"
+            ],
+            "showDevDebugOutput": false,
+            "gdbpath": "C:\\ProgramData\\chocolatey\\bin\\",
+            "armToolchainPath": "C:\\ProgramData\\chocolatey\\bin\\",
+            "serverpath": "C:\\ProgramData\\chocolatey\\bin\\openocd.exe"
+        }
+    ]
+}
