@@ -1,2 +1,5 @@
+[template]
+exclude = ["video/"]
+
 [package]
 exclude = ["video/*"]
