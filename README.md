@@ -190,6 +190,6 @@ $ arm-none-eabi-objcopy -O binary ./target/thumbv7em-none-eabihf/debug/${PWD##*/
 
 ## 参考資料
 - Rust用のHALライブラリ
-[GitHub - David-OConnor/stm32-hal: This library provides access to STM32 peripherals in Rust.](https://github.com/David-OConnor/stm32-hal/tree/main)
+    -[GitHub - David-OConnor/stm32-hal: This library provides access to STM32 peripherals in Rust.](https://github.com/David-OConnor/stm32-hal/tree/main)
 - 上記のドキュメント
-[stm32_hal2(ドキュメント) - Rust](https://docs.rs/stm32-hal2/0.2.9/stm32_hal2/#)
+    - [stm32_hal2(ドキュメント) - Rust](https://docs.rs/stm32-hal2/0.2.9/stm32_hal2/#)

@@ -5,9 +5,8 @@
     "tasks": [
         {
             "label": "Build project",
-            "command": "wsl",
+            "command": "${env:HOMEPATH}\\.rustup\\toolchains\\nightly-x86_64-pc-windows-msvc\\bin\\cargo.exe",
             "args": [
-                "~/.cargo/bin/cargo",
                 "build"
             ],
             "group": {
@@ -18,9 +17,8 @@
         },
         {
             "label": "Clean project",
-            "command": "wsl",
+            "command": "cargo",
             "args": [
-                "~/.cargo/bin/cargo",
                 "clean"
             ],
             "problemMatcher": [
