@@ -2,13 +2,10 @@
 STM32マイコンをRustで開発するためのテンプレート（windows用）
 
 ## 概要
-- Visual Studio Codeでコーディング
-- Powershell + Rustでビルド
-- Visual Studio Code + openOCDでデバッグ
-
-```powershell
-cargo generate --git https://github.com/Takaaki-MATSUZAWA/rust-stm32-hal2-template
-```
+- Rustでコーディング
+- cargoでクロスコンパイル
+- openOCDでデバッグ
+- 上記の全てをVScode上で行う
 
 ## 環境構築
 ### chocolatyのインストール

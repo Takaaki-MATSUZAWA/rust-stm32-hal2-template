@@ -23,7 +23,9 @@ fn main() -> ! {
 
     let mut gpiob = GpioB::new(dp.GPIOB, &mut dp.RCC);
     let mut led = gpiob.new_pin(8, PinMode::Output);
-    led.set_high();
+    
+    let mut count = 0;
+
 
     loop {
         //low_power::sleep_now(&mut cp.SCB);
@@ -32,6 +34,8 @@ fn main() -> ! {
 
         led.set_low();
         delay(170000000 /10 );
+
+        count += 1;
 
     }
 }
