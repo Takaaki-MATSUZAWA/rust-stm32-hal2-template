@@ -12,10 +12,8 @@ cargo generate --git https://github.com/Takaaki-MATSUZAWA/rust-stm32-hal2-templa
 
 ## 環境構築
 ### chocolatyのインストール
-基本的にChocolatyを使って環境を構築する
-
-インストール済みの場合は飛ばしてください。
-
+基本的にChocolatyを使って環境を構築する  
+インストール済みの場合は飛ばしてください  
 [Chocolatey Software \| Installing Chocolatey](https://chocolatey.org/install)
 
 - powershellを管理者権限で起動
@@ -24,7 +22,7 @@ cargo generate --git https://github.com/Takaaki-MATSUZAWA/rust-stm32-hal2-templa
 ```
 
 ### パッケージのインストール
-インストール済みの物は飛ばしてインストールしてください
+インストール済みのものは飛ばしてインストールしてください
 
 ```powershell
 > choco install vscode
@@ -63,7 +61,7 @@ cargo generate --git https://github.com/Takaaki-MATSUZAWA/rust-stm32-hal2-templa
     - デバッグ用
 
 ## プロジェクトの作成
-適当なワークスペースフォルダを作ってその中でpowershellを起動
+適当な場所にワークスペースフォルダを作ってその中でpowershellを起動
 
 ```powershell
 PS workspace_dir> cargo generate --git https://github.com/Takaaki-MATSUZAWA/rust-stm32-hal2-template
@@ -88,8 +86,7 @@ PS workspace_dir> code ./
 ```
 
 ## マイコンに合わせて設定を変える
-以下の例はstm32g431をターゲットに設定されています。
-
+以下の例はstm32g431をターゲットに設定されています  
 ターゲットマイコンに合わせて設定を書き換えてください
 
 ### .cargo/config.toml
@@ -104,8 +101,7 @@ target = "thumbv7em-none-eabihf"     # Cortex-M4F and Cortex-M7F (with FPU)
 ```
 
 ### .vscode/launch.json
-デバッグ用の設定
-
+デバッグ用の設定  
 マイコンに合わせて"device"と".cfg"ファイルを変更
 ```json
 ...
@@ -126,8 +122,7 @@ stm32-hal2 = { version = "^0.2.9", features = ["g431", "g4rt"]}
 ```
 
 ### memory.x
-マイコンのFLASHとRAMの容量、アドレスにあせて変更してください。
-
+マイコンのFLASHとRAMの容量、アドレスにあせて変更してください  
 FLASH領域の一部をユーザーデータの保存等に使うときも適宜書き換えてください
 ```x
 ...
@@ -148,8 +143,7 @@ RAM : ORIGIN = 0x20000000, LENGTH = 12K
 $ ${env:HOMEPATH}\\.rustup\\toolchains\\nightly-x86_64-pc-windows-msvc\\bin\\cargo.exe build
 $ arm-none-eabi-objcopy -O binary ./target/thumbv7em-none-eabihf/debug/${PWD##*/} binary.bin
 ```
-
-出来上がったbinary.binを手動で書き込み
+出来上がったbinary.binを手動で書き込み  
 nucleo等ならドラッグアンドドロップ
 
 ## 参考資料
