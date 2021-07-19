@@ -1,2 +1,2 @@
 [package]
-exclude = ["video/"]
+exclude = ["video/*"]
