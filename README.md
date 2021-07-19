@@ -7,6 +7,9 @@ STM32マイコンをRustで開発するためのテンプレート（windows用�
 - openOCDでデバッグ
 - 上記の全てをVScode上で行う
 
+## デモ
+![demo](https://github.com/Takaaki-MATSUZAWA/rust-stm32-hal2-template/video/debug_test.gif)
+
 ## 環境構築
 ### chocolatyのインストール
 基本的にChocolatyを使って環境を構築する  
