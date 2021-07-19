@@ -128,7 +128,50 @@ PS workspace_dir> code ./
 ```
 
 ## マイコンに合わせて設定を変える
+以下の例はstm32g431をターゲットに設定されています。
+ターゲットマイコンに合わせて設定を書き換えてください
 
+### .cargo/config.toml
+ターゲットマイコンの種類に合わせて1つだけコメントを外す
+```config
+...
+# target = "thumbv6m-none-eabi"        # Cortex-M0 and Cortex-M0+
+# target = "thumbv7m-none-eabi"        # Cortex-M3
+# target = "thumbv7em-none-eabi"       # Cortex-M4 and Cortex-M7 (no FPU)
+target = "thumbv7em-none-eabihf"     # Cortex-M4F and Cortex-M7F (with FPU)
+...
+```
+
+### .vscode/launch.json
+デバッグ用の設定
+マイコンに合わせて"device"と".cfg"ファイルを変更
+```json
+...
+"device": "STM32G431",
+"configFiles": [
+    "interface/stlink-v2-1.cfg",
+    "target/stm32g4x.cfg"
+],
+...
+```
+
+### Cargo.toml
+こちらもマイコンに合わせてfeaturesを編集
+```config
+...
+stm32-hal2 = { version = "^0.2.9", features = ["g431", "g4rt"]}
+...
+```
+
+### memory.x
+マイコンのFLASHとRAMの容量、アドレスにあせて変更してください。
+FLASH領域の一部をユーザーデータの保存等に使うときも適宜書き換えてください
+```x
+...
+FLASH : ORIGIN = 0x08000000, LENGTH = 64K
+RAM : ORIGIN = 0x20000000, LENGTH = 12K
+...
+```
 
 ## デバッグ
 - マイコンをPCにつなぐ
