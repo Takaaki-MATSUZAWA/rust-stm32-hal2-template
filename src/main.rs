@@ -26,16 +26,14 @@ fn main() -> ! {
     
     let mut count = 0;
 
-
     loop {
-        //low_power::sleep_now(&mut cp.SCB);
-        led.set_high();
-        delay(170000000 /10 );
-
-        led.set_low();
-        delay(170000000 /10 );
+        if count%2 == 1 {
+            led.set_high();
+        }else{
+            led.set_low();
+        }
 
         count += 1;
-
+        delay(170_000_000);
     }
 }
