@@ -1,5 +1,0 @@
-[package]
-exclude = ["video/"]
-
-[template]
-exclude = ["video/"]

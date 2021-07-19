@@ -8,7 +8,7 @@ STM32マイコンをRustで開発するためのテンプレート（windows用�
 - 上記の全てをVScode上で行う
 
 ## デモ
-![demo](https://github.com/Takaaki-MATSUZAWA/rust-stm32-hal2-template/raw/main/video/debug_test.gif)
+![demo](https://github.com/Takaaki-MATSUZAWA/rust-stm32-hal2-template-demo-video/raw/main/debug_test.gif)
 
 ## 環境構築
 ### chocolatyのインストール
