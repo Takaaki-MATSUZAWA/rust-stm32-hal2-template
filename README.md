@@ -1,56 +1,18 @@
 # rust-stm32-hal2-template
-STM32マイコンをRustで開発するためのテンプレート
+STM32マイコンをRustで開発するためのテンプレート（windows用）
 
 ## 概要
 - Visual Studio Codeでコーディング
-- wsl + Rustでビルド
+- Powershell + Rustでビルド
 - Visual Studio Code + openOCDでデバッグ
 
-windowsだけで環境を構築したかったが、powershell+Rustだとエラーがでてcortex-m向けのクロスコンパイルができなかったので、緊急避難的にwsl+ubuntuでビルドするようにした。
-windows側のエラーが解消されたら切り替える予定。
-
-## 環境構築
-### WSL
-wsl2の有効化とUbuntu 20.04をインストールしてください
-他の組み合わせ(例えばwsl1 + Ubuntu 18.04)とかでは未確認
-
-以下、wslでの環境構築
-- apt
-    - libssl-dev 
-    - build-essential 
-    - gcc-arm-none-eabi
-- Rust
-    - rustup
-        - beta or nighty
-    - cargo
-        - cargo-edit
-        - cargo-generate
-        - cargo-update
-
-```bash
-# gccまわり
-$ sudo apt update
-$ sudo apt install libssl-dev build-essential gcc-arm-none-eabi
-
-# Rustまわり
-$ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
-# クロスコンパイル
-$ rustup install beta
-$ rustup default beta
-
-$ rustup target add thumbv7em-none-eabihf
-$ cargo install cargo-edit
-$ cargo install cargo-generate 
-$ cargo install cargo-update
-
-$ cargo -V
-cargo 1.54.0-beta (5ae8d74b3 2021-06-22)
+```powershell
+cargo generate --git https://github.com/Takaaki-MATSUZAWA/rust-stm32-hal2-template
 ```
 
-### Windows
+## 環境構築
 ### chocolatyのインストール
-基本的にChocolatyを使って環境を構築していきます。
+基本的にChocolatyを使って環境を構築する
 インストール済みの場合は飛ばしてください。
 [Chocolatey Software \| Installing Chocolatey](https://chocolatey.org/install)
 
@@ -59,25 +21,21 @@ cargo 1.54.0-beta (5ae8d74b3 2021-06-22)
  > Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 ```
 
-### chocolatyを使ったインストール
-- VScode
-- openOCD
-- rust
-- git
-- gcc-arm-embedded
-等をインストールします。
-自分の環境に合わせて選んでインストールしてください
+### パッケージのインストール
+インストール済みの物は飛ばしてインストールしてください
 
 ```powershell
 > choco install vscode
+> choco install git
+> choco install mingw
 > cocho install oepnocd
 > cocho install rust
 > choco install rustup
 > choco install gcc-arm-embedded
 ```
 
-### windows側のRustの設定
-windows側のrustも設定しておく
+### Rustの環境構築
+クロスコンパイル用の環境構築
 
 ```powershell
 > rustup install nightly-msvc
@@ -180,16 +138,16 @@ RAM : ORIGIN = 0x20000000, LENGTH = 12K
 - main.rsの適当な場所にブレークポイントを置く
 - 実行
 
-## ビルドとbinの書き込み(手動)(ドラッグ&ドロップ)
+## ビルドとbinの書き込み(手動)
 ```bash
-$ cargo build
+$ ${env:HOMEPATH}\\.rustup\\toolchains\\nightly-x86_64-pc-windows-msvc\\bin\\cargo.exe build
 $ arm-none-eabi-objcopy -O binary ./target/thumbv7em-none-eabihf/debug/${PWD##*/} binary.bin
-
-# binary.binを手動でドラッグアンドドロップ
 ```
+出来上がったbinary.binを手動で書き込み
+nucleo等ならドラッグアンドドロップ
 
 ## 参考資料
 - Rust用のHALライブラリ
-    -[GitHub - David-OConnor/stm32-hal: This library provides access to STM32 peripherals in Rust.](https://github.com/David-OConnor/stm32-hal/tree/main)
+    - [GitHub - David-OConnor/stm32-hal: This library provides access to STM32 peripherals in Rust.](https://github.com/David-OConnor/stm32-hal/tree/main)
 - 上記のドキュメント
     - [stm32_hal2(ドキュメント) - Rust](https://docs.rs/stm32-hal2/0.2.9/stm32_hal2/#)
