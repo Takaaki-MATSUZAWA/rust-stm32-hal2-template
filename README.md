@@ -148,6 +148,7 @@ RAM : ORIGIN = 0x20000000, LENGTH = 12K
 $ ${env:HOMEPATH}\\.rustup\\toolchains\\nightly-x86_64-pc-windows-msvc\\bin\\cargo.exe build
 $ arm-none-eabi-objcopy -O binary ./target/thumbv7em-none-eabihf/debug/${PWD##*/} binary.bin
 ```
+
 出来上がったbinary.binを手動で書き込み
 nucleo等ならドラッグアンドドロップ
 
