@@ -1,5 +1,0 @@
-{
-    "terminal.integrated.env.windows": {
-        "PATH": "${env:PATH};${env:HOMEPATH}\\.rustup\\toolchains\\nightly-x86_64-pc-windows-msvc\\lib\\rustlib\\x86_64-pc-windows-msvc\\bin"
-    }
-}

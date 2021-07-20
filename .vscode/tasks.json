@@ -13,6 +13,11 @@
                 "kind": "build",
                 "isDefault": true
             },
+            "options": {
+                "env": {
+                   "PATH": "${env:PATH};${env:HOMEPATH}\\.rustup\\toolchains\\nightly-x86_64-pc-windows-msvc\\lib\\rustlib\\x86_64-pc-windows-msvc\\bin"
+                }
+            },
             "dependsOn": "Stop openOCD"
         },
         {
