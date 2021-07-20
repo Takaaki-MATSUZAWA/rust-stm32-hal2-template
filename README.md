@@ -30,7 +30,8 @@ STM32マイコンをRustで開発するためのテンプレート（windows用�
 > choco install mingw
 > cocho install oepnocd
 > cocho install rust
-> choco install rustup
+> choco install rustup.install
+> choco install rust-ms
 > choco install gcc-arm-embedded
 ```
 
@@ -59,6 +60,10 @@ STM32マイコンをRustで開発するためのテンプレート（windows用�
     - まだbeta版
 - Cortex-Debug
     - デバッグ用
+
+### PCの再起動
+環境構築が一通り終わったら一度PCを再起動してくだい  
+プロジェクトのビルド時にエラーを吐く場合があります
 
 ## プロジェクトの作成
 適当な場所にワークスペースフォルダを作ってその中でpowershellを起動
