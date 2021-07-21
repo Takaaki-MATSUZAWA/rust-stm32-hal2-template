@@ -7,12 +7,10 @@ name = "{{project-name}}"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-cortex-m = "0.7.2"
-cortex-m-rt = { version = "0.6.13", features = ["device"] }
+cortex-m = "0.7.3"
+cortex-m-rt = { version = "0.6.14", features = ["device"] }
 panic-halt = "0.2.0"
-stm32-hal2 = { version = "^0.2.9", features = ["g431", "g4rt"]}
-
-# stm32g4 = { version = "0.13.0", optional = true }
+stm32-hal2 = { version = "^0.2.10", features = ["g431", "g4rt"]}
 
 [profile.dev]
 codegen-units = 1
