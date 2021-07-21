@@ -5,14 +5,14 @@
             "name": "Cortex Debug",
             "cwd": "${workspaceRoot}",
             "executable": "./target/thumbv7em-none-eabihf/debug/${workspaceFolderBasename}",
-            "device": "STM32G431",
+            "device": "STM32F446",
             "request": "launch",
             "preLaunchTask": "Build project",
             "type": "cortex-debug",
             "servertype": "openocd",
             "configFiles": [
                 "interface/stlink-v2-1.cfg",
-                "target/stm32g4x.cfg"
+                "target/stm32f4x.cfg"
             ],
             "autorun": [
                 "interrupt",
