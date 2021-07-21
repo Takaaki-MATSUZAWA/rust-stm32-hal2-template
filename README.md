@@ -87,11 +87,11 @@ PS workspace_dir> cargo generate --git https://github.com/Takaaki-MATSUZAWA/rust
  
 PS workspace_dir> cd ProjectName
 # VScodeを起動
-PS workspace_dir> code ./
+PS ProjectName> code ./
 ```
 
 ## マイコンに合わせて設定を変える
-以下の例はstm32g431をターゲットに設定されています  
+このテンプレートは[NUCLEO-G431KB](https://www.st.com/ja/evaluation-tools/nucleo-g431kb.html)をターゲットに設定しています  
 ターゲットマイコンに合わせて設定を書き換えてください
 
 ### .cargo/config.toml
@@ -131,8 +131,8 @@ stm32-hal2 = { version = "^0.2.9", features = ["g431", "g4rt"]}
 FLASH領域の一部をユーザーデータの保存等に使うときも適宜書き換えてください
 ```x
 ...
-FLASH : ORIGIN = 0x08000000, LENGTH = 64K
-RAM : ORIGIN = 0x20000000, LENGTH = 12K
+FLASH : ORIGIN = 0x8000000, LENGTH = 128K 
+RAM : ORIGIN = 0x20000000, LENGTH = 32K
 ...
 ```
 
