@@ -92,7 +92,11 @@ PS ProjectName> code ./
 
 ## マイコンに合わせて設定を変える
 このテンプレートは[NUCLEO-G431KB](https://www.st.com/ja/evaluation-tools/nucleo-g431kb.html)をターゲットに設定しています  
-ターゲットマイコンに合わせて設定を書き換えてください
+ターゲットマイコンに合わせて設定を書き換えてください  
+
+[NUCLEO-F446RE](https://www.st.com/ja/evaluation-tools/nucleo-g431rb.html)用のブランチを用意してみました -> [F446-branch](https://github.com/Takaaki-MATSUZAWA/rust-stm32-hal2-template/tree/NUCLEO-F446RE)  
+
+他のマイコンをターゲットにする際は[こちらの差分](https://github.com/Takaaki-MATSUZAWA/rust-stm32-hal2-template/compare/NUCLEO-F446RE)を参考にしてみてください  
 
 ### .cargo/config.toml
 ターゲットマイコンの種類に合わせて1つだけコメントを外す
